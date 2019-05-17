@@ -27,7 +27,7 @@ namespace Launcher
 {
     public partial class Launcher : Form
     {
-        private static string _version = "0.0.2";
+        private static string _version = "0.0.3";
         public static string localVersion = "0.0.0";
         public static string rageDirectory = Properties.Settings.Default.rage_directory;
         public static string gameDirectory = "\\client_resources\\game.lastchance.wtf_22005\\";
@@ -239,15 +239,17 @@ namespace Launcher
                     MessageBox.Show("Launcher Update verfügbar. Update startet.", "LastChance Launcher");
                     UpdateLauncher();
                 }
-            }
-
-            if (rageDirectory != null && rageDirectory != "")
-            {
-                CheckAndUpdate();
-            }
-            else
-            {
-                SetRageDirectory();
+                else
+                {
+                    if (rageDirectory != null && rageDirectory != "")
+                    {
+                        CheckAndUpdate();
+                    }
+                    else
+                    {
+                        SetRageDirectory();
+                    }
+                }
             }
         }
         private void Connect_Click(object sender, EventArgs e)
