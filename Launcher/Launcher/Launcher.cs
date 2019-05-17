@@ -15,7 +15,7 @@ namespace Launcher
         private static string _version = "0.0.2";
         public static string localVersion = "0.0.0";
         public static string rageDirectory = Properties.Settings.Default.rage_directory;
-        public static string gameDirectory = "\\client_resources\\v2.lastchance.wtf_22005\\";
+        public static string gameDirectory = "\\client_resources\\game.lastchance.wtf_22005\\";
 
         public Launcher()
         {
