@@ -99,7 +99,7 @@ namespace Launcher
             {
                 WebClient client = new WebClient();
                 client.DownloadFileCompleted += new AsyncCompletedEventHandler(updater_DownloadFileCompleted);
-                client.DownloadFileAsync(new Uri("https://lastchance.wtf/launcher/launcher.exe"), Directory.GetCurrentDirectory()+"\\launcher.exe");
+                client.DownloadFileAsync(new Uri("https://lastchance.wtf/launcher/launcher.exe"), Directory.GetCurrentDirectory() + "\\launcher.exe");
             });
             thread.Start();
         }
@@ -240,7 +240,7 @@ namespace Launcher
         {
             using (var client = new WebClient())
             {
-                if(File.Exists(Directory.GetCurrentDirectory()+ "\\LastChance Launcher.bak"))
+                if (File.Exists(Directory.GetCurrentDirectory() + "\\LastChance Launcher.bak"))
                 {
                     File.Delete(Directory.GetCurrentDirectory() + "\\LastChance Launcher.bak");
                 }
