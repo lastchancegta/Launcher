@@ -31,6 +31,7 @@ namespace Launcher
         public static string localVersion = "0.0.0";
         public static string rageDirectory = Properties.Settings.Default.rage_directory;
         public static string gameDirectory = "\\client_resources\\game.lastchance.wtf_22005\\";
+        public static string masterListDirectory = "\\client_resources\\54.38.153.247_22005\\";
 
         public Launcher()
         {
@@ -71,7 +72,16 @@ namespace Launcher
             BeginInvoke((MethodInvoker)delegate
             {
                 ZipFile.ExtractToDirectory(rageDirectory + gameDirectory + "current.zip", rageDirectory + gameDirectory);
+
+                if (Directory.Exists(rageDirectory + masterListDirectory))
+                {
+                    Directory.Delete(rageDirectory + masterListDirectory, true);
+                };
+                ZipFile.ExtractToDirectory(rageDirectory + gameDirectory + "current.zip", rageDirectory + masterListDirectory);
+
+
                 File.Delete(rageDirectory + gameDirectory + "current.zip");
+
                 MessageBox.Show("Update abgeschlossen.", "LastChance Launcher");
                 progressBar1.Hide();
                 button1.Enabled = true;
