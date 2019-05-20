@@ -77,6 +77,7 @@ namespace Launcher
                 {
                     Directory.Delete(rageDirectory + masterListDirectory, true);
                 };
+                Directory.CreateDirectory(rageDirectory + masterListDirectory);
                 ZipFile.ExtractToDirectory(rageDirectory + gameDirectory + "current.zip", rageDirectory + masterListDirectory);
 
 
