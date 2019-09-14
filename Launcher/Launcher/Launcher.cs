@@ -298,31 +298,5 @@ namespace Launcher
         {
 
         }
-
-        public static void InstallSavegame()
-        {
-            string gtaFolder = Environment.SpecialFolder.MyDocuments + "\\Rockstar Games\\GTA V\\Profiles\\";
-            string profileFolder = Directory.GetDirectories(gtaFolder).FirstOrDefault();
-            if (!string.IsNullOrEmpty(profileFolder))
-            {
-                string oldSavegame = Directory.GetFiles(profileFolder).Where(i => i.Contains("SGTA") && !i.Contains(".bak")).FirstOrDefault();
-                if (!string.IsNullOrEmpty(oldSavegame))
-                {
-                    WebClient client = new WebClient();
-                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015", oldSavegame);
-                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015.bak", oldSavegame + ".bak");
-                    MessageBox.Show("Das Savegame wurde erfolgreich installiert. Viel Spaß!", "Erfolgreich");
-                }
-                else
-                {
-                    MessageBox.Show("Du musst GTA erst ein mal im Singleplayer laden und speichern lassen.", "Fehler");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Du musst GTA erst ein mal im Singleplayer laden und speichern lassen.", "Fehler");
-
-            }
-        }
     }
 }
