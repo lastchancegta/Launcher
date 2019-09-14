@@ -90,7 +90,6 @@ namespace Launcher
                 Settings.Enabled = true;
                 UpdateCheck.Enabled = true;
                 Connect.Enabled = true;
-                button2.Enabled = true;
             });
         }
 
@@ -156,7 +155,6 @@ namespace Launcher
                     Settings.Enabled = false;
                     UpdateCheck.Enabled = false;
                     Connect.Enabled = false;
-                    button2.Enabled = false;
 
                     UpdateGame();
                     return true;
@@ -303,12 +301,7 @@ namespace Launcher
 
         public static void InstallSavegame()
         {
-            string gtaFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Rockstar Games\\GTA V\\Profiles\\";
-            if (!Directory.Exists(gtaFolder))
-            {
-                MessageBox.Show("Bevor du das 100% Savegame installieren kannst musst du GTA ein mal im Singleplayer starten und speichern lassen!", "Fehler");
-                return;
-            }
+            string gtaFolder = Environment.SpecialFolder.MyDocuments + "\\Rockstar Games\\GTA V\\Profiles\\";
             string profileFolder = Directory.GetDirectories(gtaFolder).FirstOrDefault();
             if (!string.IsNullOrEmpty(profileFolder))
             {
@@ -322,25 +315,14 @@ namespace Launcher
                 }
                 else
                 {
-                    MessageBox.Show("Bevor du das 100% Savegame installieren kannst musst du GTA ein mal im Singleplayer starten und speichern lassen!", "Fehler");
+                    MessageBox.Show("Du musst GTA erst ein mal im Singleplayer laden und speichern lassen.", "Fehler");
                 }
             }
             else
             {
-                MessageBox.Show("Bevor du das 100% Savegame installieren kannst musst du GTA ein mal im Singleplayer starten und speichern lassen!", "Fehler");
+                MessageBox.Show("Du musst GTA erst ein mal im Singleplayer laden und speichern lassen.", "Fehler");
 
             }
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Möchtest du das Savegame wirklich installieren? Dein Singleplayer-Spielstand wird dabei überschrieben.", "Savegame", MessageBoxButtons.YesNo);
-            if(dialog == DialogResult.Yes)
-            {
-                InstallSavegame();
-            }
-            
-
         }
     }
 }
