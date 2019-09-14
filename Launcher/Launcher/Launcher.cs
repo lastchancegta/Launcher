@@ -27,11 +27,11 @@ namespace Launcher
 {
     public partial class Launcher : Form
     {
-        private static string _version = "0.0.5";
+        private static string _version = "0.0.6";
         public static string localVersion = "0.0.0";
         public static string rageDirectory = Properties.Settings.Default.rage_directory;
         public static string gameDirectory = "\\client_resources\\game.lastchance.wtf_22005\\";
-        public static string masterListDirectory = "\\client_resources\\54.38.153.247_22005\\";
+        public static string masterListDirectory = "\\client_resources\\116.202.48.170_22005\\";
 
         public Launcher()
         {
