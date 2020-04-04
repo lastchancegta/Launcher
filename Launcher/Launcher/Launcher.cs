@@ -312,12 +312,14 @@ namespace Launcher
             string profileFolder = Directory.GetDirectories(gtaFolder).FirstOrDefault();
             if (!string.IsNullOrEmpty(profileFolder))
             {
-                string oldSavegame = Directory.GetFiles(profileFolder).Where(i => i.Contains("SGTA") && !i.Contains(".bak")).FirstOrDefault();
+                string oldSavegame = Directory.GetFiles(profileFolder).Where(i => i.Contains(".bak")).FirstOrDefault();
                 if (!string.IsNullOrEmpty(oldSavegame))
                 {
                     WebClient client = new WebClient();
-                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015", oldSavegame);
-                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015.bak", oldSavegame + ".bak");
+                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015", oldSavegame.Substring(oldSavegame.Length-4));
+                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015.bak", oldSavegame);
+                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015", "SGTA50015");
+                    client.DownloadFile("https://lastchance.wtf/launcher/savegame/SGTA50015.bak", "SGTA50015" + ".bak");
                     MessageBox.Show("Das Savegame wurde erfolgreich installiert. Viel Spaß!", "Erfolgreich");
                 }
                 else
